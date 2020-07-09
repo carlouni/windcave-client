@@ -1,0 +1,26 @@
+{
+    "name": "gccm/windcave-client",
+    "description": "Windcave client to implement payment gateways.",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^9.2",
+        "friendsofphp/php-cs-fixer": "^2.16"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gonzalo Carlo Cardenas Magno",
+            "email": "gcmuni@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {"Gccm\\WindcaveClient\\": "src/"}
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Gccm\\WindcaveClient\\": "tests/"
+        }
+    },
+    "require": {}
+}
