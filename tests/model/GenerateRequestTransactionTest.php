@@ -1,6 +1,5 @@
 <?php
 use Gccm\WindcaveClient\model\GenerateRequestTransaction;
-//use Gccm\WindcaveClient\ProcessResponseTransaction;
 
 use PHPUnit\Framework\TestCase;
 
