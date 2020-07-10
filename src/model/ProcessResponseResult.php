@@ -9,7 +9,7 @@ class ProcessResponseResult extends AbstractResult
            'Success',
            'TxnType',
            'CurrencyInput',
-           'MerchantReferece',
+           'MerchantReference',
            'TxnData1',
            'TxnData2',
            'TxnData3',
