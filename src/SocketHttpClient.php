@@ -57,7 +57,6 @@ class SocketHttpClient extends AbstractHttpClient
         fclose($fp);
         
         $response = $this->parseHttpResponse($result);
-        echo $response['statusCode'];
         if ($response['statusCode'] !== 200 || empty($response['body'])) {
             throw new \RuntimeException(
                 "Call to {$this->endpoint} resulted in {$response['statusCode']} {$response['reasonPhrase']}: Unexpected result when sending requests to Payment Express."
