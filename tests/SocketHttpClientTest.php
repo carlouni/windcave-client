@@ -25,7 +25,7 @@ final class SocketHttpClientTest extends TestCase
             'UrlSuccess' => 'https://demo.paymentexpress.com/SandboxSuccess.aspx',
             'UrlFail' => 'https://demo.paymentexpress.com/SandboxSuccess.aspx',
         ]);
-        $result = $socketHttpClient->submitXml($generateRequest);
+        $result = $socketHttpClient->submitXml($generateRequest->toXml());
         echo $result;
     }
 

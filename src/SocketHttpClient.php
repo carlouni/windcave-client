@@ -13,11 +13,10 @@ class SocketHttpClient extends AbstractHttpClient
     }
 
     /**
-     * @param Gccm\WindcaveClient\model\AbstractTransaction $transaction transaction to be sent
+     * @param string $xml XML string containing transaction to be sent.
      */
-    public function submitXml($transaction): string
+    public function submitXml($xml): string
     {
-        $xml = $transaction->toXml();
         // parsing the given URL
         $URL_Info = parse_url($this->endpoint);
   
@@ -61,7 +60,8 @@ class SocketHttpClient extends AbstractHttpClient
         echo $response['statusCode'];
         if ($response['statusCode'] !== 200 || empty($response['body'])) {
             throw new \RuntimeException(
-                "Call to {$this->endpoint} resulted in {$response['statusCode']} {$response['reasonPhrase']}: Unexpected result when sending requests to Payment Express.");
+                "Call to {$this->endpoint} resulted in {$response['statusCode']} {$response['reasonPhrase']}: Unexpected result when sending requests to Payment Express."
+            );
         }
 
         return $response['body'];
