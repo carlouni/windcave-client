@@ -1,5 +1,5 @@
 <?php
-namespace Gccm\WindcaveClient;
+namespace Gccm\WindcaveClient\http;
 
 class SocketHttpClient extends AbstractHttpClient
 {
