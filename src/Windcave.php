@@ -25,6 +25,7 @@ class Windcave
     }
 
     /**
+     * Obtain a Windcave payment URL for the transactions details passed in $data.
      * @param array $data Associative array containing GenerateRequest data.
      * @return string
      */
@@ -58,6 +59,7 @@ class Windcave
     }
 
     /**
+     * Obtain transaction result as an associative array using the response hash sent by Windcave.
      * @param string $responseHash Hexadecimal hash returned by Windcave after payment process.
      * @return array
      */
