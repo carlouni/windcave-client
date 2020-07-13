@@ -79,7 +79,7 @@ class Windcave
             $resultArray = $result->toArray();
 
             if ($resultArray['TxnType'] === '') {
-                throw new WindcaveException($resultArray['ResponseText']);
+                throw new \RuntimeException($resultArray['ResponseText']);
             }
 
             return $resultArray;
