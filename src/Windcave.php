@@ -74,8 +74,13 @@ class Windcave
 
             $result = ResultFactory::make('ProcessResponseResult');
             $result->setXml($resultXml);
+            $resultArray = $result->toArray();
 
-            return $result->toArray();
+            if ($resultArray['TxnType'] === '') {
+                throw new WindcaveException($resultArray['ResponseText']);
+            }
+
+            return $resultArray;
         } catch (\Exception $e) {
             throw new WindcaveException($e->getMessage());
         }
