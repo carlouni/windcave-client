@@ -1,5 +1,5 @@
 <?php
-use Gccm\WindcaveClient\SocketHttpClient;
+use Gccm\WindcaveClient\http\SocketHttpClient;
 use Gccm\WindcaveClient\model\GenerateRequestTransaction;
 use Gccm\WindcaveClient\model\GenerateRequestResult;
 
@@ -13,7 +13,7 @@ final class SocketHttpClientTest extends TestCase
         $generateRequest = new GenerateRequestTransaction();
         $generateRequest->setData([
             'PxPayUserId' => 'SampleUserId',
-            'PxPayKey' => '17ce70a6025d8b925373066d3f71704a1868ea30a8d0485b6d086f722fdd9997',
+            'PxPayKey' =>  '17ce70a6025d8b925373066d3f71704a1868ea30a8d0485b6d086f722fdd9997',
             'MerchantReference' => 'Auth Example',
             'TxnType' => 'Auth',
             'AmountInput' => '1.00',
@@ -32,7 +32,4 @@ final class SocketHttpClientTest extends TestCase
         $resultArray = $result->toArray();
         $this->assertEquals($resultArray['ResponseText'], 'Invalid Access Info');
     }
-
-    
-    
 }

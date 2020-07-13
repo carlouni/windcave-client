@@ -1,0 +1,5 @@
+<phpunit>
+    <extensions>
+        <extension class="Gccm\WindcaveClient\extensions\LoadDotEnv" />
+    </extensions>
+</phpunit>

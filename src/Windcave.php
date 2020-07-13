@@ -68,7 +68,7 @@ class Windcave
             $transaction->setData([
                 'PxPayUserId' => $this->pxPayUserId,
                 'PxPayKey' => $this->pxPayKey,
-                'Response'
+                'Response' => $responseHash
             ]);
             $resultXml = $this->httpClient->submitXml($transaction->toXml());
 
