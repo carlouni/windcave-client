@@ -13,32 +13,40 @@ The <b>url</b> returned by <b>$windcave->getPaymentUrl</b> is where the payer sh
 
 ```PHP
 use Gccm\WindcaveClient\Windcave;
+use Gccm\WindcaveClient\exception\WindcaveException;
 
-$windcave = new Windcave(
-    'https://sec.paymentexpress.com/pxaccess/pxpay.aspx',
-    'SampleUserId',
-    '17ce70a6025d8b925373066d3f71704a1868ea30a8d0485b6d086f722fdd9997'
-);
+try {
+    $windcave = new Windcave(
+        'https://sec.paymentexpress.com/pxaccess/pxpay.aspx',
+        'SampleUserId',
+        '17ce70a6025d8b925373066d3f71704a1868ea30a8d0485b6d086f722fdd9997'
+    );
 
-$url = $windcave->getPaymentUrl([
-    'MerchantReference' => 'Auth Example',
-    'TxnType' => 'Auth',
-    'AmountInput' => '1.00',
-    'CurrencyInput' => 'NZD',
-    'TxnData1' => 'John Doe',
-    'TxnData2' => '0211111111',
-    'TxnData3' => '98 Anzac Ave, Auckland 1010',
-    'EmailAddress' => 'SampleUserId@paymentexpress.com',
-    'TxnId' => uniqid(),
-    'UrlSuccess' => 'https://demo.paymentexpress.com/SandboxSuccess.aspx',
-    'UrlFail' => 'https://demo.paymentexpress.com/SandboxSuccess.aspx',
-]);
+    $url = $windcave->getPaymentUrl([
+        'MerchantReference' => 'Auth Example',
+        'TxnType' => 'Auth',
+        'AmountInput' => '1.00',
+        'CurrencyInput' => 'NZD',
+        'TxnData1' => 'John Doe',
+        'TxnData2' => '0211111111',
+        'TxnData3' => '98 Anzac Ave, Auckland 1010',
+        'EmailAddress' => 'SampleUserId@paymentexpress.com',
+        'TxnId' => uniqid(),
+        'UrlSuccess' => 'https://demo.paymentexpress.com/SandboxSuccess.aspx',
+        'UrlFail' => 'https://demo.paymentexpress.com/SandboxSuccess.aspx',
+    ]);
+
+    echo $url;
+} catch (WindcaveException $e) {
+    // do some stuff with $e
+}
+
 ```
 
 #### Example Response
-```PHP
-'https://sec.paymentexpress.com/pxmi3/EF4054F622D6C4C1B4F9AEA59DC91CAD3654CD60ED7ED04110CBC402959AC7
-CF035878AEB85D87223'
+```
+https://sec.paymentexpress.com/pxmi3/EF4054F622D6C4C1B4F9AEA59DC91CAD3654CD60ED7ED04110CBC402959AC7
+CF035878AEB85D87223
 ```
 
 ### Obtain payment result
@@ -46,15 +54,23 @@ Call the <b>$windcave->getResult</b> method passing the <b>result</b> hash retur
 
 ```PHP
 use Gccm\WindcaveClient\Windcave;
+use Gccm\WindcaveClient\exception\WindcaveException;
 
-$windcave = new Windcave(
-    'https://sec.paymentexpress.com/pxaccess/pxpay.aspx',
-    'SampleUserId',
-    '17ce70a6025d8b925373066d3f71704a1868ea30a8d0485b6d086f722fdd9997'
-);
+try {
+    $windcave = new Windcave(
+        'https://sec.paymentexpress.com/pxaccess/pxpay.aspx',
+        'SampleUserId',
+        '17ce70a6025d8b925373066d3f71704a1868ea30a8d0485b6d086f722fdd9997'
+    );
 
-$result = $windcave->getResult('00008400001853747f2bc6ded6012345');
+    $result = $windcave->getResult('00008400001853747f2bc6ded6012345');
+
+    var_dump($result);
 ]);
+} catch (WindcaveException $e) {
+    // do some stuff with $e
+}
+
 ```
 
 #### Example Response
